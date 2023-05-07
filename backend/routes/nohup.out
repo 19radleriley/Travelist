@@ -1,0 +1,26 @@
+
+> backend@0.0.0 start
+> node ./bin/www
+
+[0mGET /homebanner.0cb121282909e840.jpg [36m304 [0m8.410 ms - -[0m
+[0mGET /assets/homelogo.png [36m304 [0m7.517 ms - -[0m
+[0mGET /travelist/api/v1/whoami [36m304 [0m9.319 ms - -[0m
+[0mGET /travelist/api/v1/countries? [36m304 [0m443.745 ms - -[0m
+[0mGET /countries [36m304 [0m2.977 ms - -[0m
+[0mGET /runtime.acbe39cd6ce2a6c1.js [36m304 [0m1.959 ms - -[0m
+[0mGET /main.ea570080927ed43b.js [36m304 [0m2.914 ms - -[0m
+[0mGET /polyfills.72d836926da3c8bb.js [36m304 [0m4.047 ms - -[0m
+[0mGET /styles.98843a50cb9608aa.css [36m304 [0m2.086 ms - -[0m
+[0mGET /assets/homelogo.png [36m304 [0m1.429 ms - -[0m
+[0mGET /travelist/api/v1/whoami [36m304 [0m2.687 ms - -[0m
+[0mGET /homebanner.0cb121282909e840.jpg [36m304 [0m18.261 ms - -[0m
+[0mGET /travelist/api/v1/countries? [36m304 [0m329.985 ms - -[0m
+[0mGET /favicon.ico [36m304 [0m1.612 ms - -[0m
+[0mGET /travelist/api/v1/whoami [36m304 [0m2.275 ms - -[0m
+[0mGET /travelist/api/v1/whoami [36m304 [0m1.579 ms - -[0m
+[0mGET /travelist/api/v1/countries/United%20States?data=rest-countries [36m304 [0m139.983 ms - -[0m
+[0mGET /travelist/api/v1/6274b758bc7d570dc536f502/countries/United%20States [32m200 [0m19.388 ms - 161[0m
+[0mGET /travelist/api/v1/countries/United%20States?data=wiki-summary [36m304 [0m182.252 ms - -[0m
+[0mGET /travelist/api/v1/countries/United%20States?data=wiki-links [36m304 [0m250.284 ms - -[0m
+[0mGET /travelist/api/v1/6274b758bc7d570dc536f502/checklists?country=United%20States [32m200 [0m5.567 ms - 2[0m
+[0mGET /travelist/api/v1/countries/United%20States?data=travel-briefing [32m200 [0m663.326 ms - 9688[0m
