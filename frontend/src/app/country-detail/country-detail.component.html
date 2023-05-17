@@ -1,0 +1,110 @@
+<app-navbar></app-navbar>
+<div class="container" *ngIf="restCountry">
+    <div id="map" *ngIf="mapReady">
+        <app-map [data]="mapData"></app-map>
+        <i class="fa-solid fa-expand" [routerLink]="['map']" [state]="{ data: mapData }"></i>
+    </div>
+
+    <div id="country-container">
+        <div id="country">
+            <h1 id="country-title">
+                {{ restCountry.name.common }} {{ restCountry.flag }}
+            </h1>
+            <nav id="country-nav">
+                <span *ngFor="let tab of tabs" class="country-tab" (click)="changeTab(tab)"
+                    [class.selected]="tab == selectedTab">{{ tab }}</span>
+            </nav>
+
+            <div id="general" *ngIf="selectedTab == tabs[0]">
+                <div id="top-info" *ngIf="restCountry.capital && restCountry.currency">
+                    <div>
+                        <h2>Capital:</h2>
+                        <ul><li>{{ restCountry.capital[0] }}</li></ul>
+                    </div>
+                    <div>
+                        <h2>Currency:</h2>
+                        <ul><li>{{ restCountry.currency }}</li></ul>
+                    </div>
+                </div>
+                <div id="synopsis" *ngIf="wikiSummary">
+                    <h2>Synopsis</h2>
+                    <p (click)="viewSynopsis(wikiSummary)">{{ wikiSummary }}</p>
+                </div>
+            </div>
+
+            <div id="travel" *ngIf="selectedTab == tabs[1] && tbCountry">
+                <div class="advise"><b>{{ tbCountry.advise.UA.advise }}</b></div>
+                <div id="travel-briefing">
+                    <table class="weather">
+                        <thead>
+                            <th>Month</th><th>Avg. Temp</th>
+                        </thead>
+                        <tr *ngFor="let month of tbCountry.weather">
+                            <td>{{ month.name }}</td>
+                            <td>{{ month.tAvg }}</td>
+                        </tr>
+                    </table>
+                    <div class="travel-info">
+                        <div class="timezone"><b>Timezone:</b>
+                            <div>{{ tbCountry.timezone.name }}</div>
+                        </div>
+                        <div class="languages" *ngIf="tbCountry.language.length"><b>Languages:</b>
+                            <ol>
+                                <li class="language" *ngFor="let language of tbCountry.language">{{ language.language }}</li>
+                            </ol>
+                        </div>
+                        <div class="telephone" *ngIf="tbCountry.telephone.police != ''"><b>Numbers:</b>
+                            <ul>
+                                <li class="police">Police: {{ tbCountry.telephone.police }}</li>
+                                <li class="ambulance">Ambulance: {{ tbCountry.telephone.ambulance }}</li>
+                                <li class="fire">Fire: {{ tbCountry.telephone.fire }}</li>
+                            </ul>
+                        </div>
+                        <div *ngIf="tbCountry.vaccinations.length" class="vaccinations"><b>Vaccinations: </b>
+                            <ul>
+                                <li *ngFor="let vaccine of tbCountry.vaccinations">{{ vaccine.name }}</li> 
+                            </ul>
+                        </div>
+                        <div class="water" *ngIf="tbCountry.water.short"><b>Water:</b> {{ tbCountry.water.short }}</div>
+                    </div>
+
+                </div>
+                <div *ngIf="!tbCountry">No Travel Information Found</div>
+            </div>
+
+            <div id="links" *ngIf="selectedTab == tabs[2] && wikiLinks">
+                <a class="wiki-link" style="display: block" target="_blank" *ngFor="let link of wikiLinks" href="{{ link.link }}">{{ link.section }}</a>
+                <div *ngIf="wikiLinks.length == 0">No wiki links found for {{ restCountry.name.common }}</div>
+            </div>
+
+            <div id="todos" *ngIf="selectedTab == tabs[3]">
+                <div id="todo-list" *ngIf="checklists">
+                    <div class="todo" *ngFor="let cList of checklists" (click)="viewChecklist(cList)">
+                        <h2>{{ cList.title }} {{ restCountry.flag }}</h2>
+                        <p>{{ cList.description }}</p>
+                    </div>
+                </div>
+                <i *ngIf="!creatingTodo" (click)="toggleCreation()" class="fa-solid fa-plus add-icon"></i>
+                <form id="add-todo" *ngIf="creatingTodo">
+                    <div class="left">
+                        <input [formControl]="todoTitle" autocomplete="off" id="todo-title" type="text" placeholder="Title">
+                        <input [formControl]="todoDesc" autocomplete="off" id="todo-desc" type="text" placeholder="Description">
+                    </div>
+                    <div class="right">
+                        <i (click)="toggleCreation()" class="fa-solid fa-xmark todo-icon cancel"></i>
+                        <i (click)="addChecklist()" class="fa-solid fa-plus todo-icon confirm"></i>
+                    </div>
+                </form> 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="buttons" *ngIf="restCountry">
+    <button id="back-btn" routerLink="..">Back</button>
+    <div id="interaction-buttons">
+        <button id="unvisited-btn" *ngIf="!visited && saved" (click)="setVisited()">Unvisited</button>
+        <button id="visited-btn" *ngIf="visited && saved" (click)="setVisited()">Visited</button>
+        <button (click)="toggleSave()" id="save-btn"  *ngIf="!saved">Save Country</button>
+        <button (click)="toggleSave()" id="saved-btn" *ngIf="saved">Remove Country</button>
+    </div>
+</div>

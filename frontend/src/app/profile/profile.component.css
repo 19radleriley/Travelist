@@ -1,0 +1,309 @@
+input[type=submit] {
+    -webkit-appearance: none;
+}
+
+.banner {
+    width: 100vw;
+    height: 30vh;
+    background-color: lightgray;
+}
+
+.profile-content {
+    position: relative;
+}
+
+.img-container.mobile {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10vh;
+    text-align: center;
+}
+
+.img-container.desktop {
+    display: none;
+}
+
+.img-container.mobile > #profile-img {
+    width: clamp(8em, 20vw, 40em);
+    border-radius: 10px;
+    filter: brightness(.75);
+}
+
+.username {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+#profile-options {
+    padding-top: 5em;
+    display: flex;
+    justify-content: center;
+    gap: .5em;
+}
+
+.option {
+    color: var(--brown-dark);
+    font-size: 1.5rem;
+    padding: .25em;
+    transition: background-color .5s,
+                color .5s;
+}
+
+.option.selected {
+    background-color: rgba(0, 0, 0, 70%);
+    color: white;
+    border-radius: 5px;
+    transition: background-color .5s,
+                color .5s;
+}
+
+.profile-section {
+    width: 100vw;
+}
+
+.country {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: fit-content;
+    margin: 2em;
+}
+
+.country-flag {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 30%);
+}
+
+.country-name {
+    position: absolute;
+    bottom: .5em;
+    left: .5em;
+    padding: .5em;
+    color: white;
+    font-size: 1.25rem;
+    text-transform: capitalize;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 70%);
+}
+
+.todo {
+    display: flex;
+    position: relative;
+    gap: 1em;
+    margin: 1em auto;
+    padding: .5em;
+    width: min(80vw, 50em);
+    /* max-height: clamp(5em, 10vh, 10em); */
+    overflow: hidden;
+    outline: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.todo i {
+    position: absolute;
+    right: .5em;
+    top: .5em;
+    font-size: 1.5rem;
+    color: lightgray;
+}
+
+.todo > img {
+    max-width: 10em; 
+    border-radius: 5px;
+}
+
+.todo-title {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.todo-content > span {
+    display: inline-block;
+    height: 100%;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    overflow: scroll;
+}
+
+.user i,
+.todo i {
+    float: right;
+    color: lightgray;
+    font-size: 1.5rem;
+}
+
+#new-user {
+    text-align: center;
+    margin: 1em 0 3em;
+    font-size: 1.5rem;
+}
+
+#new-user:hover {
+    cursor: pointer;
+}
+
+#users {
+    width: min(50em, 80vw);
+    margin: auto; 
+}
+
+.user {
+    margin-top: 1em;
+    padding: 1em;
+    outline: 1px solid lightgray;
+    border-radius: 5px;
+    transition: .25s background-color;
+}
+
+.user-info {
+    font-size: 1.25rem;
+}
+
+#deactivate, #activate {
+    float: right;
+    transition: color .25s;
+}
+
+#deactivate:hover, #activate:hover {
+    cursor: pointer;
+}
+
+.setting {
+    display: flex;
+    align-items: center;
+    margin: 1em auto;
+    padding: .5em;
+    width: min(80vw, 40em);
+    font-size: 1.5rem;
+    background-color: var(--off-white);
+    outline: 1px solid lightgray;
+}
+
+.setting input {
+    margin-left: .5em;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.25rem;
+    color: gray;
+}
+
+input:focus {
+    outline: none;
+}
+
+form {
+    text-align: center;
+}
+
+.setting.submit {
+    background-color: rgba(0, 0, 0, 70%);
+}
+
+.setting > #submit-btn {
+    color: white;
+}
+
+.option:hover, .todo:hover, .country:hover, 
+.setting.sign-out:hover, #submit-btn:hover, .user:hover {
+    cursor: pointer;
+}
+
+.empty {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.empty > h2 {
+    font-size: clamp(1.25rem, 2vw, 2rem);
+}
+
+.empty > small {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.browse-btn {
+    margin-top: .5em;
+    background-color: transparent;
+    padding: .5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: background-color .25s, color .25s;
+}
+
+.browse-btn:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 50em) {
+    #visited-countries, #saved-countries {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 25em);
+        justify-content: center;
+    }
+
+    .img-container.mobile {
+        display: none;
+    }
+    .img-container.desktop {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -9em;
+        text-align: center;
+    }
+    .img-container.desktop > #profile-img {
+        width: clamp(8em, 20vw, 15em);
+        border-radius: 10px;
+        filter: brightness(.75)
+    }
+
+    #profile-options {
+        padding-top: 10em;
+    }
+
+    .country-flag {
+        transition: transform .25s;
+    }
+
+    .country-name {
+        transition: transform .25s ease;
+    }
+
+    .country:hover > .country-name {
+        transform: translateX(2px);
+    }
+
+    .country:hover > .country-flag {
+        cursor: pointer;
+        transform: scale(1.02);
+    }
+
+    .todo {
+        transition: background-color .25s;
+    }
+
+    .todo:hover {
+        background-color: #f0f0f0;
+    }
+
+    #deactivate:hover {
+        color: rgb(255, 102, 102);
+    }
+
+    #activate:hover {
+        color: rgb(93, 202, 93);
+    }
+
+    .user:hover {
+        background-color: #f0f0f0 !important;
+    }
+
+    .browse-btn:hover {
+        background-color: black;
+        color: white;
+    }
+}

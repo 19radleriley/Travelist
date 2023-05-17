@@ -1,0 +1,161 @@
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: transparent;
+    backdrop-filter: brightness(30%) blur(10px);
+    color: white;
+    z-index: 100;
+}
+
+#logo {
+    position: absolute;
+    left: 5em;
+    right: 5em;
+    text-align: center;
+    font-family: "Caveat Brush";
+    font-size: 2rem;
+}
+
+#user {
+    z-index: 150;
+    padding-left: .5em;
+}
+
+#user > i {
+    font-size: 1.5rem;
+    color: white;
+    transition: transform .15s ease-out;
+}
+
+#user-info {
+    z-index: 100;
+}
+
+#login-link,
+#register-link {
+    font-size: 1.25rem;
+}
+
+#register-link,
+#middle-slash {
+    display: none;
+}
+
+#logo:hover {
+    cursor: pointer;
+}
+
+#hamburger {
+    font-size: 2rem;
+    color: white;
+    z-index: 150;
+}
+
+#exit {
+    font-size: 2rem;
+    padding: 0 .25em;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+#hamburger:hover, #exit {
+    cursor: pointer;
+}
+
+.flyout {
+    position: fixed;
+    inset: 0;
+    padding: 2em 1em;
+    font-size: 2.5rem;
+    text-align: center;
+    backdrop-filter: brightness(15%);
+    color: white;
+    z-index: 75;
+}
+
+.flyout-link {
+    margin: 1em auto;
+    display: flex;
+    flex-direction: row;
+    max-width: 30em;
+}
+
+.flyout-link:before, .flyout-link:after{
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid;
+  margin: auto;
+}
+.flyout-link:before {
+  margin-right: 10px
+}
+.flyout-link:after {
+  margin-left: 10px
+}
+
+.flyout-link:hover {
+    cursor: pointer;
+}
+
+#spin-the-globe.main {
+    display: none;
+}
+
+@media (min-width: 60em) {
+
+    #main-nav {
+        padding: .5em 1em;
+    }
+
+    #hamburger {
+        display: none;
+    }
+
+    #logo {
+        position: relative;
+        right: 0;
+        left: 0;
+        transition: transform .25s;
+    }
+
+    #logo:hover {
+        transform: rotate(-4deg);
+    }
+
+    #register-link,
+    #middle-slash {
+        display: inline;
+    }
+
+    #login-link,
+    #register-link {
+        transition: color .25s;
+    }
+
+    #login-link:hover,
+    #register-link:hover {
+        color: lightgray;
+        cursor: pointer;
+    }
+
+    #spin-the-globe.main {
+        display: inline;
+        font-size: 1.25rem;
+        padding-right: .5em;
+        border-right: 1px solid white;
+    }
+
+    #spin-the-globe.main > i {
+        transition: .25s transform;
+    }
+
+    #user > i:hover,
+    #spin-the-globe.main > i:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
+
+/* Place a slash between sign in and sign up */

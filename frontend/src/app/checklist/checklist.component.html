@@ -1,0 +1,20 @@
+<div id="checklist" *ngIf="data.checklist">
+        <i class="fa-solid fa-trash" id="delete-todo" (click)="deleteChecklist()"></i>
+        <h1 id="checklist-title">{{ data.checklist.title }}</h1>
+        <!-- <p id="checklist-description">{{ data.checklist.description }}</p> -->
+
+        <div id="todos" *ngFor="let todo of todos">
+            <div class="todo">
+                <span class="todo-description">
+                    {{ todo.task }} 
+                </span>
+                <i class="fa-regular fa-square" (click)="completeTodo(todo)" *ngIf="!todo.completed"></i>
+                <i class="fa-regular fa-square-check" (click)="completeTodo(todo)" *ngIf="todo.completed"></i>
+            </div>
+        </div>
+        <form id="create-todo-form" *ngIf="addingTodo">
+            <input [formControl]="newTodo" type="text" autocomplete="off" id="create-todo" placeholder="Todo">
+            <i class="fa-solid fa-plus" id="add-todo" (click)="addTodo()"></i>
+        </form>
+        <i class="fa-solid fa-plus" *ngIf="!addingTodo" id="new-todo" (click)="addingTodo = true"></i>
+ </div>

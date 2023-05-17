@@ -1,0 +1,36 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --brown-light: #C1AE9C;
+    --accent-color: rgb(253, 191, 75);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    font-family: "Dosis";
+}
+
+body {
+    font-family: "Dosis";
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
+}
+
+/* Remove stuff from the map that I don't want visible */
+div[class="ol-attribution ol-unselectable ol-control ol-uncollapsible"],
+button[class="ol-zoom-in"],
+button[class="ol-zoom-out"],
+div[class="ol-rotate ol-unselectable ol-control ol-hidden"] {
+    display: none;
+}
+
+/* Animations used sitewide */

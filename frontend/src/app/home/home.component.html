@@ -1,0 +1,21 @@
+<div id="home-banner">
+    <app-navbar id="app-nav"></app-navbar>
+    <div id="banner-grid">
+        <div id="home-illustration">
+            <img src="../../assets/homelogo.png" alt="">
+        </div>
+        <!-- Home call to action -->
+        <div id="home-cta">
+            <h1 class="cta">Discover your next adventure.</h1>
+            <div class="cta-sub">
+                Travelist is a small town start up with big dreams.
+                Our passion is to bring the power of travel into your hands!
+            </div>
+            <form id="search-form" (ngSubmit)="searchForCountry()">
+                <input [formControl]="countrySearch" type="text" placeholder="Search a country" name="" id="">
+                <i class="fa-solid fa-magnifying-glass" id="magnifying-glass"></i>
+            </form>
+        </div>
+    </div>
+</div>
+<app-country-list></app-country-list>

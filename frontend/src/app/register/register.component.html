@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div id="login-container">
+    <div id="welcome-banner">
+        <div class="text-container">
+            <h1>Welcome</h1>
+            <p>Sign up!</p>
+        </div>
+    </div>
+    <form id="login-form" (ngSubmit)="register()">
+        <label for="email">Email</label>
+        <div class="credential">
+            <input [formControl]="email" type="email" id="email" placeholder="example@email.com">
+            <i class="fa-solid fa-user"></i>
+        </div>
+        <label for="password">Password</label>
+        <div class="credential">
+            <input [formControl]="password" type="password" id="password" placeholder="**********">
+            <i class="fa-solid fa-key"></i>
+        </div>
+        <input class="submit-btn" type="submit" value="Sign up">
+        <small>or</small>
+        <b routerLink="/login">Login Here</b>
+    </form>
+
+</div>

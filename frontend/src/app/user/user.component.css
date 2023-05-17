@@ -1,0 +1,77 @@
+h1 {
+    width: fit-content;
+    border-bottom: 1px solid black;
+}
+
+.user {
+    width: clamp(15em, 65vw, 30em);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1em;
+    gap: 1rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#username, #email, #password {
+    padding: .5rem;
+    font-size: 1.5rem;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.input-container.active,
+.input-container.admin {
+    flex-direction: row;
+    align-items: center;
+    gap: .5em;
+}
+
+.input-container.active > label,
+.input-container.admin > label {
+    font-size: 1.25rem;
+}
+
+#active, #admin{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+#save-btn {
+    float: right;
+    padding: .5rem;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-family: "Dosis";
+    font-size: 1.5rem;
+    transition: color .25s, background-color .25s;
+    color: black;
+}
+
+#save-btn:hover {
+    cursor: pointer;
+}
+
+#delete-user {
+    float: right;
+}
+
+#delete-user:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 50em) {
+    #save-btn:hover {
+        background-color: black;
+        color: white;
+    }
+}

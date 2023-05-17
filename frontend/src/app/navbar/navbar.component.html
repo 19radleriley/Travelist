@@ -1,0 +1,23 @@
+<nav id="main-nav">
+    <i class="fa-solid fa-bars" id="hamburger" (click)="toggleNav()"></i>
+    <span id="logo" routerLink="/countries">Travelist</span>
+    <span>
+        <span id="spin-the-globe" class="main" *ngIf="user" (click)="spinTheGlobe()"><i class="fa-solid fa-globe"></i></span>
+        <span id="user" *ngIf="user" routerLink="/profile"><i class="fa-solid fa-user"></i></span>
+        <span *ngIf="!user" id="user-info">
+            <span id="login-link" routerLink="/login">Sign in</span>
+            <span id="middle-slash"> / </span> 
+            <span id="register-link" routerLink="/register">Sign up</span>
+        </span>
+    </span>
+</nav>
+
+<div class="flyout" *ngIf="navExpanded">
+    <i class="fa-solid fa-xmark" id="exit" (click)="toggleNav()"></i>
+    <div routerLink="/countries" (click)="toggleNav()" class="flyout-link">Home</div>
+    <div routerLink="/profile" (click)="toggleNav()" *ngIf="user" class="flyout-link">Profile</div>
+    <div routerLink="/login" (click)="toggleNav()" *ngIf="!user" class="flyout-link">Sign in</div>
+    <div routerLink="/register" (click)="toggleNav()" *ngIf="!user"class="flyout-link">Register</div>
+    <div (click)="toggleNav()" class="flyout-link">About</div>
+    <div id="spin-the-globe" class="flyout-link" *ngIf="user" (click)="spinTheGlobe()"><i class="fa-solid fa-globe"></i></div>
+</div>

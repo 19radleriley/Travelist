@@ -1,0 +1,58 @@
+#checklist {
+    width: clamp(10em, 70vw, 40em);
+}
+
+#checklist-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    /* line-height: 90%; */
+    border-bottom: 1px solid lightgray;
+    width: fit-content;
+}
+
+#delete-todo {
+    display: block;
+    float: right;
+}
+
+#delete-todo:hover {
+    cursor: pointer;
+}
+
+#create-todo {
+    padding: .25rem;
+    border: none;
+    font-size: 1.25rem;
+}
+
+#create-todo:focus {
+    outline: none;
+}
+
+#create-todo-form {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: .5rem 0;
+    outline: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+#add-todo {
+    padding-right: .25em;
+}
+
+#todos {
+    margin-top : .5rem;
+}
+
+.todo {
+    font-size: 1.25rem;
+}
+
+#new-todo {
+    margin-top: .5rem;
+}
+
+.fa-plus:hover {
+    cursor: pointer;
+}

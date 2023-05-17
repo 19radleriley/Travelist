@@ -1,0 +1,92 @@
+<div id="profile-container">
+    <div class="banner">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="profile-content" *ngIf="user">
+        <div class="img-container mobile">
+            <img src="../../assets/default-user.png" alt="" id="profile-img">
+            <p class="username">@<span *ngIf="user.admin">admin-</span>{{ user.username }}</p>
+        </div>
+        <div class="img-container desktop">
+            <img src="../../assets/default-user.png" alt="" id="profile-img">
+            <p class="username">@<span *ngIf="user.admin">admin-</span>{{ user.username }}</p>
+        </div>
+        <nav id="profile-options">
+            <span *ngFor="let option of options selected" 
+                class="option" [class.selected]="option === selectedOption" (click)="selectOption(option)">{{ option }}</span>
+        </nav>
+
+        <div id="users" *ngIf="(selectedOption == 'Users') && users">
+            <div class="user" *ngFor="let user of users" (click)="viewUser(user)">
+                <i class="fa-solid fa-square-pen"></i>
+                <div class="user-info"><b>Username:</b> {{ user.username }}</div>
+                <div class="user-info"><b>Email:</b> {{ user.email }}</div>
+                <div class="user-info"><b>Active:</b> {{ user.active }}</div>
+                <div class="user-info"><b>Admin:</b> {{ user.admin }}</div>
+            </div>
+            <div id="new-user">
+                <i (click)="viewUser()" class="fa-solid fa-plus todo-icon confirm"></i>
+            </div>
+        </div>
+
+        <div id="saved-countries" *ngIf="(selectedOption == 'Saved') && savedCountries" class="profile-section">
+            <div class="country" *ngFor="let country of savedCountries" (click)="viewCountry( country.name )">
+                <img class="country-flag" src="{{ country.flagLink }}" alt="{{ country.name }}'s national flag">
+                <h2 class="country-name">{{ country.name }}</h2>
+            </div>
+            <div *ngIf="savedCountries.length == 0" class="empty">
+                <h2>You have no saved countries</h2>
+                <button class="browse-btn" routerLink="/countries">Browse</button>
+            </div>
+        </div>
+
+        <div id="visited-countries" *ngIf="(selectedOption == 'Visited') && visitedCountries" class="profile-section">
+            <div class="country" *ngFor="let country of visitedCountries" (click)="viewCountry( country.name )">
+                <img class="country-flag" src="{{ country.flagLink }}" alt="{{ country.name }}'s national flag">
+                <h2 class="country-name">{{ country.name }}</h2>
+            </div>
+            <div *ngIf="visitedCountries.length == 0" class="empty">
+                <h2>You have no visited countries</h2>
+                <button class="browse-btn" routerLink="/countries">Browse</button>
+            </div>
+        </div>
+
+        <div id="todos" *ngIf="(selectedOption == 'Todos') && checklists" class="profile-section">
+            <div class="todo" *ngFor="let checklist of checklists" (click)="viewChecklist(checklist)">
+                <img src="{{ checklist.flagLink }}" alt="">
+                <div class="todo-content">
+                    <div class="todo-title">{{ checklist.title }}</div>
+                    <span>{{ checklist.description }}</span>
+                </div>
+                <i class="fa-solid fa-square-pen"></i>
+            </div>
+            <div class="empty" *ngIf="checklists.length == 0">
+                <h2>You have no todo lists</h2>
+                <small>Save a country to begin creating todos</small>
+            </div>
+        </div>
+
+        <div id="settings" *ngIf="selectedOption == 'Settings'" class="profile-section">
+            <form (ngSubmit)="updateSettings()">
+                <div class="setting">
+                    <label for="username">Username: </label>
+                    <input [formControl]="username" type="text" id="username">
+                </div>
+                <div class="setting">
+                    <label for="email">Email: </label>
+                    <input [formControl]="email" type="email" id="email">
+                </div>
+                <div class="setting">
+                    <label for="email">Password: </label>
+                    <input [formControl]="password" placeholder="**********" type="password" id="password">
+                </div>
+                <div class="setting sign-out" (click)="logout()">
+                    <span id="sign-out">Sign Out</span>
+                </div>
+                <div class="setting submit">
+                    <input type="submit" value="Save" id="submit-btn">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+#home-banner {
+    height: 90vh;
+    width: 100vw;
+    background-image: url("../../assets/homebanner.jpg");
+    background-size: cover;
+}
+
+#app-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+}
+
+#banner-grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+
+    backdrop-filter: blur(10px) brightness(90%);
+}
+
+#home-illustration > img {
+    display: block;
+    padding-top: 1.5em;
+    width: 75%;
+    margin: auto;
+}
+
+#home-cta {
+    padding: 0 2em;
+    color: white;
+    text-align: center;
+}
+
+.cta {
+    padding-bottom: .5em;
+    font-size: clamp(2.75rem, 3.5vw, 4rem);
+    font-weight: bold;
+    letter-spacing: .75;
+    line-height: .9;
+}
+
+.cta-sub {
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    max-width: 50ch;
+}
+
+#search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+    padding: .25em; 
+    height: fit-content;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#search-form > input {
+    padding: .2em;
+    display: inline-block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: gray;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+#search-form > input:focus {
+    outline: none;
+}
+
+#magnifying-glass {
+    padding: .2em;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    color: lightgray;
+}
+
+@media (min-width: 60em) {
+    #home-banner {
+        height: 45vh;
+    }
+
+    #banner-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 45vw);
+        place-items: center;
+        height: 100%;
+    }
+
+    #home-illustration {
+        max-width: 30em;
+    }
+
+    #home-cta {
+        text-align: left;
+        margin-top: 1.5em;
+    }
+}

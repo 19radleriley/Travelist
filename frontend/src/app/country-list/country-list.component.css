@@ -1,0 +1,113 @@
+#continent-filter {
+    position: sticky;
+    top: 0;
+    padding: 2em 1em 1em 1em;
+    white-space: nowrap;
+    overflow: auto;
+    background-color: white;
+    backdrop-filter: opacity(20%) brightness(50%);
+    z-index: 50;
+}
+
+.continent {
+    color: black;
+    font-size: 1.5rem;
+    padding: 0 .5em;
+    border-radius: 5px;
+    transition: background-color .5s,
+                color .5s;
+}
+
+.continent.selected {
+    color: white;
+    background-color: rgba(0, 0, 0, 70%);
+    border-radius: 5px;
+    transition: background-color .5s, 
+                color .5s;
+}
+
+#countries {
+    padding: 1.5em 5em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 20em);
+    justify-content: center;
+    grid-gap: 2em;
+}
+
+.country {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: fit-content;
+}
+
+.country-flag {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 30%);
+}
+
+.country-name {
+    position: absolute;
+    bottom: .5em;
+    left: .5em;
+    padding: .5em;
+    color: white;
+    font-size: 1.25rem;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 70%);
+}
+
+.country:hover > .country-flag,
+.continent:hover {
+    cursor: pointer;
+}
+
+#empty {
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+/* Override the default styling for the pagination controls */
+/deep/ .ngx-pagination .current {
+    background-color: black !important;
+    border-radius: 3px;
+}
+
+/deep/ .ngx-pagination  a  {
+        border-radius: 3px !important;
+        transition: background-color .25s;
+    }
+.pagination-container {
+    text-align: center;
+}
+
+@media (min-width: 50em) {
+    .container {
+        /* transform: translateY(3em); */
+    }
+
+    #continent-filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .country-flag {
+        transition: transform .25s;
+    }
+
+    .country-name {
+        transition: transform .25s ease;
+    }
+
+    .country:hover > .country-name {
+        transform: translateX(2px);
+    }
+
+    .country:hover > .country-flag {
+        cursor: pointer;
+        transform: scale(1.02);
+    }
+}

@@ -1,0 +1,20 @@
+<div class="container">
+    <nav id="continent-filter">
+        <span *ngFor="let filter of filters" (click)="selectFilter(filter)"
+        class="continent" [class.selected]="filter == selectedFilter">{{ filter }}</span>
+    </nav>
+
+    <div id="countries" *ngIf="countries">
+        <div *ngFor="let country of countries | paginate : { itemsPerPage: 18, currentPage: p }" id="{{ country.name }}" class="country" (click)="selectCountry(country)">
+            <img src="{{ country.flag }}" alt="Flag of {{ country.name }}" class="country-flag">
+            <h2 class="country-name">{{ country.name }}</h2>
+        </div>
+    </div>
+    <div id="empty" *ngIf="countries && countries.length == 0">
+        <h1>No countries matched your search.</h1>
+    </div>
+    
+    <div class="pagination-container">
+        <pagination-controls *ngIf="countries" (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

@@ -1,0 +1,378 @@
+
+#map {
+    position: relative;
+    width: 100vw;
+    height: 20vh;
+    outline: 1px solid lightgray;
+}
+
+.fa-expand {
+    position: absolute;
+    bottom: .5em;
+    right: .5em;
+    font-size: 2rem;
+    z-index: 100;
+}
+
+#country {
+    margin: 1em auto;
+    padding: 1em;
+    width: 80%; 
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 30%);
+}
+
+#country-title {
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    font-size: clamp(4rem, 4vw, 5rem);
+    line-height: 85%;
+    text-align: center;
+}
+
+#save-country {
+    font-size: 3rem;
+}
+
+#save-country:hover {
+    cursor: pointer;
+}
+
+#country-nav {
+    padding: .5em 0;
+    white-space: nowrap;
+    overflow: auto;
+    text-align: center;
+    transition: background-color .5s,
+                color .5s
+}
+
+.country-tab {
+    padding: 0 .5em;
+    color: gray;
+    font-size: 1.5rem;
+}
+
+.country-tab.selected {
+    color: white;
+    background-color: rgba(0, 0, 0, 70%);
+    border-radius: 5px;
+    transition: background-color .5s,
+                color .5s
+}
+
+#country h2 {
+    font-size: clamp(1.75rem, 2.5vw, 2rem);
+}
+
+#top-info li {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    margin-left: 1em;
+}
+
+#top-info {
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.5em;
+}
+
+#flag {
+    max-width: 25em;
+    width: 60%;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 30%);
+}
+
+#synopsis > p {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.country-tab:hover,
+.fa-expand:hover {
+    cursor: pointer;
+}
+
+.add-icon {
+    margin: 1em 0;
+    padding: .15em .25em;
+    font-size: 1.25rem;
+}
+
+.add-icon:hover {
+    cursor: pointer;
+}
+
+#todos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* text-align: center; */
+}
+
+#todo-list {
+    width: 100%;
+    max-width: 40em;
+}
+
+.todo {
+    margin: .5em 0;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    transition: background-color .25s;
+}
+
+.todo:hover {
+    cursor: pointer;
+}
+
+.todo > h2 {
+    width: fit-content;
+    font-size: 2rem;
+    border-bottom: 1px solid lightgray;
+}
+
+.todo > p {
+    font-size: 1.25rem;
+}
+
+#add-todo {
+    display: flex;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#todo-title, #todo-desc {
+    display: block;
+    width: 100%;
+    padding: 0 1rem;
+    background-color: transparent;
+    border: none;
+}
+
+#todo-title {
+    font-size: 2rem;
+    padding-top: .5rem;
+}
+
+#todo-desc {
+    font-size: 1.25rem;
+    padding-bottom: .5rem;
+}
+
+#todo-title:focus, #todo-desc:focus {
+    outline: none;
+}
+
+#todo-title::placeholder, #todo-desc::placeholder {
+    color: lightgray;
+}
+
+.todo-icon {
+    display: block;
+    border-radius: 5px;
+}
+
+.todo-icon.cancel {
+    font-size: 1.25rem;
+    padding: 0 .2rem;
+    color: rgb(255, 188, 188);
+    border: 2px solid rgb(255, 188, 188);
+}
+
+.todo-icon.confirm {
+    font-size: 1.15rem;
+    padding: .05rem .1rem;
+    color: rgb(168, 247, 168);
+    border: 2px solid rgb(168, 247, 168);
+}
+
+.todo-icon:hover {
+    cursor: pointer;
+}
+
+.left {
+    overflow: hidden;
+    flex: 10;
+}
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 100%;
+    width: 90%;
+    margin: auto;
+} 
+
+#back-btn {
+    grid-row: 2;
+}
+
+#back-btn, #save-btn, #saved-btn,
+#unvisited-btn, #visited-btn {
+    width: 100%;
+    font-family: "Dosis";
+    padding: .5em;
+    margin: .25em;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    transition: color .25s, background-color .25s
+}
+
+#saved-btn, #visited-btn {
+    border: 1px solid rgba(0, 0, 0, 70%);
+    background-color: rgba(0, 0, 0, 70%);
+    color: white;
+}
+#back-btn:hover, #save-btn:hover, #saved-btn:hover,
+#visited-btn:hover, #unvisited-btn:hover {
+    cursor: pointer;
+}
+
+#links {
+    max-height: 25em;
+    overflow: scroll;
+    transition: box-shadow .25s;
+    border-radius: 10px;
+}
+
+#links:hover {
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 30%);
+}
+
+.wiki-link {
+    width: min(70%, 20em);
+    padding: .25rem;
+    margin: .5rem auto;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    outline: 1px solid lightgray;  
+    transition: color .25s, background-color .25s;  
+}
+
+a.wiki-link:visited {
+    background-color: #f0f0f0;
+}
+
+.advise {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#travel-briefing {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2em;
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+}
+
+.travel-info > div {
+    margin: .5rem 0;
+}
+
+li {
+    margin-left: 2rem;
+}
+
+.weather * {
+    padding: .25rem;
+    outline: 1px solid lightgray;
+}
+
+#synopsis > p {
+    max-height: 10em;
+    padding: .5em;
+    margin-top: .5rem;
+    border-radius: 5px;
+    overflow: scroll;
+    transition: box-shadow .25s;
+}
+
+#synopsis > p:hover {
+    cursor: pointer;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 30%);
+}
+
+@media (min-width: 50em) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: .5em;
+        width: 90%;
+        height: fit-content;
+        margin: 5em auto 0;
+        /* padding: 1rem; */
+        background-color: var(--off-white);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 30%);
+    }
+
+    #top-info {
+        justify-content: left;
+    }
+
+    #country-container {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 1em;
+    }
+
+    #country {
+        background-color: transparent;
+        outline: none;
+        box-shadow: none;
+    }
+
+    #map {
+        margin: 0;
+        max-width: 50vw;
+        height: 100%;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .todo:hover {
+        background-color: #f0f0f0;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 1em auto;
+    }
+
+    #back-btn, #save-btn, #saved-btn,
+    #unvisited-btn, #visited-btn {
+        width: fit-content;
+    }
+
+
+    #back-btn:hover, #save-btn:hover,
+    #unvisited-btn:hover {
+        background-color: rgba(0, 0, 0, 70%);
+        color: white;
+    }
+
+    .wiki-link:hover, .wiki-link:visited:hover {
+        background-color: rgba(0, 0, 0, 70%);
+        color: white;
+    }
+}

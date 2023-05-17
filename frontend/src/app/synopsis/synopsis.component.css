@@ -1,0 +1,7 @@
+.container {
+    max-width: 50em;
+}
+
+p {
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+}
